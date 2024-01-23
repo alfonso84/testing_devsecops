@@ -13,9 +13,7 @@ pipeline {
 	stage('Build') { 
             steps { 
                withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
-                 script{
-                 app =  docker.build("innoqadevsecops")
-                 }
+                 sh 'docker build -t innoqadevsecops .'
                }
             }
     }
