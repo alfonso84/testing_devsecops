@@ -13,12 +13,10 @@ pipeline {
 
 	stage('RunSCAAnalysisUsingSnyk') {
             steps {		
-				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
                     snykSecurity(
                     snykInstallation: 'snyk',
                     snykTokenId: 'e5548051-f967-4237-b722-c89594adbb75',
                     )
-				}
 			}
     }
 
