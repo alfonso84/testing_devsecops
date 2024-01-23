@@ -15,6 +15,7 @@ pipeline {
                withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
                  sh 'docker build -t innoqadevsecops .'
                  sh 'docker tag innoqadevsecops:latest 381050469176.dkr.ecr.eu-north-1.amazonaws.com/innoqadevsecops:latest'
+                 sh 'docker push 381050469176.dkr.ecr.eu-north-1.amazonaws.com/innoqadevsecops:latest'
                }
             }
     }
