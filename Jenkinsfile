@@ -14,7 +14,10 @@ pipeline {
 	stage('RunSCAAnalysisUsingSnyk') {
             steps {		
 				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-					sh 'snyk auth ${SNYK_TOKEN}'
+                    snykSecurity(
+                    snykInstallation: '<Your Snyk Installation Name>',
+                    snykTokenId: '${SNYK_TOKEN}',
+                    )
 				}
 			}
     }
