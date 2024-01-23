@@ -15,7 +15,7 @@ pipeline {
             steps {		
 				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
                     snykSecurity(
-                    snykInstallation: '<Your Snyk Installation Name>',
+                    snykInstallation: 'snyk',
                     snykTokenId: '${SNYK_TOKEN}',
                     )
 				}
