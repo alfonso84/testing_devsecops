@@ -20,14 +20,14 @@ pipeline {
             }
     }
 
-	stage('Push') {
-            steps {
-                script{
-                    docker.withRegistry('https://381050469176.dkr.ecr.eu-north-1.amazonaws.com', 'ecr:eu-north-1:aws-credentials') {
-                    app.push("latest")
-                    }
-                }
-            }
+	// stage('Push') {
+    //         steps {
+    //             script{
+    //                 docker.withRegistry('https://381050469176.dkr.ecr.eu-north-1.amazonaws.com', 'ecr:eu-north-1:aws-credentials') {
+    //                 app.push("latest")
+    //                 }
+    //             }
+    //         }
     	}
 	   
 	// stage('Kubernetes Deployment of ASG Bugg Web Application') {
