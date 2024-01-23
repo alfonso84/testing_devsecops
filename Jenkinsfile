@@ -15,7 +15,7 @@ pipeline {
             steps {		
                     snykSecurity(
                     snykInstallation: 'snyk',
-                    snykTokenId: 'e5548051-f967-4237-b722-c89594adbb75',
+                    snykTokenId: e5548051-f967-4237-b722-c89594adbb75,
                     )
 			}
     }
