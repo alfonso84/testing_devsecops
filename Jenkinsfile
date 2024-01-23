@@ -2,7 +2,7 @@ pipeline {
   agent any
   tools { 
         maven 'Maven_3_5_2'  
-        snyk
+        snyk 'snyk'
     }
    stages{
     stage('CompileandRunSonarAnalysis') {
