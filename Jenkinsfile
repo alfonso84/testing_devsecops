@@ -10,21 +10,11 @@ pipeline {
 		sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=alfonso84_testing_devsecops -Dsonar.organization=alfonso84 -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=b91e53be856225ba01195f41378b2292b6e93a11'
 			}
     }
-
-	stage('RunSCAAnalysisUsingSnyk') {
-            steps {		
-                    snykSecurity(
-                    snykInstallation: 'snyk',
-                    snykTokenId: e5548051-f967-4237-b722-c89594adbb75,
-                    )
-			}
-    }
-
 	stage('Build') { 
             steps { 
                withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
                  script{
-                 app =  docker.build("asg")
+                 app =  docker.build("innoqadevsecops")
                  }
                }
             }
@@ -33,7 +23,7 @@ pipeline {
 	stage('Push') {
             steps {
                 script{
-                    docker.withRegistry('https://145988340565.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:aws-credentials') {
+                    docker.withRegistry('https://381050469176.dkr.ecr.eu-north-1.amazonaws.com', 'ecr:eu-north-1:aws-credentials') {
                     app.push("latest")
                     }
                 }
